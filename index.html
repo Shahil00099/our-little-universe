@@ -1,0 +1,2231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Our Little Universe ❤️</title>
+
+
+<style>
+
+/* =====================================================
+   BASIC RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+
+    background: #02020b;
+
+    color: white;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+}
+
+
+/* =====================================================
+   SPACE BACKGROUND
+===================================================== */
+
+#space {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #24104f 0%,
+            #11082e 30%,
+            #050418 65%,
+            #010107 100%
+        );
+
+    z-index: 0;
+}
+
+
+/* =====================================================
+   PURPLE / PINK NEBULAS
+===================================================== */
+
+.nebula {
+
+    position: absolute;
+
+    width: 70vw;
+    height: 70vw;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: .14;
+
+    background: #914cff;
+
+    animation:
+        nebulaMove 16s ease-in-out infinite alternate;
+}
+
+.nebula.one {
+
+    left: -25%;
+    top: -25%;
+}
+
+.nebula.two {
+
+    right: -25%;
+    bottom: -25%;
+
+    background: #ff4f9b;
+
+    animation-delay: 5s;
+}
+
+
+@keyframes nebulaMove {
+
+    from {
+
+        transform:
+            scale(1)
+            translate(0, 0);
+    }
+
+    to {
+
+        transform:
+            scale(1.3)
+            translate(60px, -40px);
+    }
+}
+
+
+/* =====================================================
+   BACKGROUND STARS
+===================================================== */
+
+.background-star {
+
+    position: absolute;
+
+    width: 2px;
+    height: 2px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 5px white,
+        0 0 12px white;
+
+    animation:
+        twinkle 2s infinite alternate;
+}
+
+
+@keyframes twinkle {
+
+    from {
+
+        opacity: .2;
+
+        transform:
+            scale(.7);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1.5);
+    }
+}
+
+
+/* =====================================================
+   SCENES
+===================================================== */
+
+.scene {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 25px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform: scale(1.04);
+
+    transition:
+        opacity 1.4s ease,
+        transform 1.4s ease;
+
+    z-index: 10;
+}
+
+
+.scene.active {
+
+    opacity: 1;
+
+    pointer-events: auto;
+
+    transform: scale(1);
+}
+
+
+.content {
+
+    width:
+        min(900px, 100%);
+}
+
+
+/* =====================================================
+   TEXT
+===================================================== */
+
+.eyebrow {
+
+    margin-bottom: 25px;
+
+    color: #c9baff;
+
+    font-size: .8rem;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+}
+
+
+h1 {
+
+    font-size:
+        clamp(
+            2.8rem,
+            8vw,
+            6.5rem
+        );
+
+    font-weight: normal;
+
+    line-height: 1.05;
+
+    text-shadow:
+        0 0 15px rgba(255,255,255,.35),
+        0 0 60px rgba(145,85,255,.5);
+}
+
+
+h2 {
+
+    font-size:
+        clamp(
+            2rem,
+            5vw,
+            4rem
+        );
+
+    font-weight: normal;
+
+    line-height: 1.15;
+
+    text-shadow:
+        0 0 30px rgba(160,100,255,.4);
+}
+
+
+p {
+
+    margin-top: 25px;
+
+    color: #e3def8;
+
+    font-size:
+        clamp(
+            1.05rem,
+            2vw,
+            1.4rem
+        );
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+button {
+
+    margin-top: 35px;
+
+    padding:
+        15px 32px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.35);
+
+    border-radius: 999px;
+
+    color: white;
+
+    background:
+        rgba(255,255,255,.08);
+
+    backdrop-filter:
+        blur(15px);
+
+    font-family: inherit;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    transition:
+        .3s ease;
+}
+
+
+button:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.04);
+
+    background:
+        rgba(255,255,255,.17);
+
+    box-shadow:
+        0 0 40px
+        rgba(180,120,255,.35);
+}
+
+
+button:active {
+
+    transform:
+        scale(.96);
+}
+
+
+/* =====================================================
+   MUSIC BUTTON
+===================================================== */
+
+#musicButton {
+
+    position: fixed;
+
+    top: 18px;
+    right: 18px;
+
+    margin: 0;
+
+    padding:
+        10px 17px;
+
+    font-size: .85rem;
+
+    z-index: 200;
+}
+
+
+/* =====================================================
+   DISCOVERY STARS
+===================================================== */
+
+.discovery-star {
+
+    position: absolute;
+
+    width: 26px;
+    height: 26px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 8px white,
+        0 0 25px #c084fc,
+        0 0 60px #7c3aed;
+
+    animation:
+        discoveryPulse
+        1.7s
+        infinite
+        alternate;
+
+    z-index: 30;
+
+    transition:
+        transform .6s ease,
+        opacity .6s ease;
+}
+
+
+.discovery-star:hover {
+
+    transform:
+        scale(1.5);
+}
+
+
+.discovery-star.collected {
+
+    opacity: 0;
+
+    transform:
+        scale(5);
+
+    pointer-events: none;
+}
+
+
+@keyframes discoveryPulse {
+
+    from {
+
+        box-shadow:
+            0 0 5px white,
+            0 0 15px #c084fc,
+            0 0 30px #7c3aed;
+    }
+
+    to {
+
+        box-shadow:
+            0 0 12px white,
+            0 0 35px #e9d5ff,
+            0 0 70px #8b5cf6;
+    }
+}
+
+
+/* =====================================================
+   MESSAGE BOX
+===================================================== */
+
+#messageBox {
+
+    position: fixed;
+
+    left: 50%;
+    top: 50%;
+
+    width:
+        min(90%, 560px);
+
+    padding: 35px;
+
+    transform:
+        translate(-50%, -50%)
+        scale(.85);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    border-radius: 28px;
+
+    background:
+        rgba(8,6,28,.95);
+
+    backdrop-filter:
+        blur(25px);
+
+    box-shadow:
+        0 0 100px
+        rgba(130,80,255,.3);
+
+    transition:
+        opacity .5s ease,
+        transform .5s ease;
+
+    z-index: 150;
+}
+
+
+#messageBox.show {
+
+    opacity: 1;
+
+    pointer-events: auto;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+}
+
+
+#messageBox h3 {
+
+    font-size: 1.9rem;
+
+    font-weight: normal;
+
+    margin-bottom: 10px;
+}
+
+
+#messageBox p {
+
+    margin-top: 10px;
+}
+
+
+/* =====================================================
+   CONSTELLATION
+===================================================== */
+
+#constellation {
+
+    position: relative;
+
+    width:
+        min(600px, 90vw);
+
+    height: 420px;
+
+    margin:
+        0 auto 10px;
+}
+
+
+.constellation-star {
+
+    position: absolute;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+        0 0 15px white,
+        0 0 35px #c084fc;
+
+    opacity: 0;
+
+    transition:
+        opacity 1s ease;
+}
+
+
+.constellation-star.visible {
+
+    opacity: 1;
+}
+
+
+.constellation-line {
+
+    position: absolute;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #cbb8ff,
+            transparent
+        );
+
+    transform-origin:
+        left center;
+
+    opacity: 0;
+
+    transition:
+        opacity 1s ease;
+}
+
+
+.constellation-line.visible {
+
+    opacity: 1;
+}
+
+
+/* =====================================================
+   HEART
+===================================================== */
+
+.big-heart {
+
+    margin-top: 25px;
+
+    font-size:
+        clamp(
+            5rem,
+            18vw,
+            12rem
+        );
+
+    filter:
+        drop-shadow(
+            0 0 15px #ff4d8d
+        )
+        drop-shadow(
+            0 0 60px #ff176f
+        );
+
+    animation:
+        heartbeat
+        1.5s
+        infinite;
+}
+
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+    }
+
+    50% {
+
+        transform:
+            scale(1.12);
+    }
+}
+
+
+/* =====================================================
+   FLOWER GARDEN
+===================================================== */
+
+#garden {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 80;
+}
+
+
+.flower {
+
+    position: absolute;
+
+    bottom: -120px;
+
+    animation:
+        flowerGrow
+        2.5s
+        ease
+        forwards;
+}
+
+
+@keyframes flowerGrow {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(100px)
+            scale(0);
+    }
+
+    70% {
+
+        opacity: 1;
+
+        transform:
+            translateY(-10px)
+            scale(1.15);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+.floating-heart {
+
+    position: fixed;
+
+    bottom: -50px;
+
+    pointer-events: none;
+
+    color: #ff5a9d;
+
+    z-index: 100;
+
+    animation:
+        floatHeart
+        linear
+        forwards;
+}
+
+
+@keyframes floatHeart {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    15% {
+
+        opacity: 1;
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+    }
+}
+
+
+/* =====================================================
+   FINAL GLOW
+===================================================== */
+
+.final-glow {
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: #ff3f88;
+
+    filter: blur(150px);
+
+    opacity: .13;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:600px) {
+
+    .scene {
+
+        padding: 20px;
+    }
+
+    #messageBox {
+
+        padding: 25px;
+    }
+
+    #constellation {
+
+        height: 320px;
+    }
+
+    .discovery-star {
+
+        width: 21px;
+        height: 21px;
+    }
+
+    #musicButton {
+
+        top: 12px;
+        right: 12px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     AUDIO
+===================================================== -->
+
+<audio
+    id="music"
+    loop
+    preload="auto"
+>
+
+    <source
+        src="romantic.mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
+
+
+<!-- =====================================================
+     MUSIC BUTTON
+===================================================== -->
+
+<button id="musicButton">
+
+    🎵 Music
+
+</button>
+
+
+<!-- =====================================================
+     SPACE
+===================================================== -->
+
+<div id="space">
+
+    <div class="nebula one"></div>
+
+    <div class="nebula two"></div>
+
+</div>
+
+
+<!-- =====================================================
+     SCENE 1 — INTRO
+===================================================== -->
+
+<section
+    id="scene1"
+    class="scene active"
+>
+
+    <div class="content">
+
+        <div class="eyebrow">
+
+            Somewhere in the universe...
+
+        </div>
+
+
+        <h1>
+
+            I found you. ❤️
+
+        </h1>
+
+
+        <p>
+
+            Out of billions of stars,<br>
+
+            somehow our paths crossed.
+
+        </p>
+
+
+        <button id="enterButton">
+
+            Enter Our Universe ✨
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SCENE 2 — STAR DISCOVERY
+===================================================== -->
+
+<section
+    id="scene2"
+    class="scene"
+>
+
+    <div class="content">
+
+        <div class="eyebrow">
+
+            Explore the stars
+
+        </div>
+
+
+        <h2>
+
+            Every star holds a little piece of us.
+
+        </h2>
+
+
+        <p>
+
+            Find all five glowing stars. ✨
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MESSAGE POPUP
+===================================================== -->
+
+<div id="messageBox">
+
+    <h3 id="messageTitle">
+
+        A little secret ❤️
+
+    </h3>
+
+
+    <p id="messageText">
+
+    </p>
+
+
+    <button id="continueButton">
+
+        Keep exploring ✨
+
+    </button>
+
+</div>
+
+
+<!-- =====================================================
+     SCENE 3 — CONSTELLATION
+===================================================== -->
+
+<section
+    id="scene3"
+    class="scene"
+>
+
+    <div class="content">
+
+
+        <div id="constellation"></div>
+
+
+        <div class="eyebrow">
+
+            Our constellation
+
+        </div>
+
+
+        <h2>
+
+            Every moment became a star.
+
+        </h2>
+
+
+        <p>
+
+            And together, they became something beautiful.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SCENE 4 — FUTURE
+===================================================== -->
+
+<section
+    id="scene4"
+    class="scene"
+>
+
+    <div class="content">
+
+
+        <div class="eyebrow">
+
+            The future
+
+        </div>
+
+
+        <h2>
+
+            I don't know what tomorrow looks like...
+
+        </h2>
+
+
+        <p>
+
+            But I know who I want beside me.
+
+        </p>
+
+
+        <div class="big-heart">
+
+            ❤️
+
+        </div>
+
+
+        <button id="futureButton">
+
+            Continue ❤️
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SCENE 5 — FINAL
+===================================================== -->
+
+<section
+    id="scene5"
+    class="scene"
+>
+
+    <div class="final-glow"></div>
+
+
+    <div class="content">
+
+
+        <div class="eyebrow">
+
+            Our little universe
+
+        </div>
+
+
+        <h1>
+
+            Out of everything<br>
+
+            this universe could have given me...
+
+        </h1>
+
+
+        <p>
+
+            I'm happiest that it gave me you. ❤️
+
+        </p>
+
+
+        <p>
+
+            Welcome to our little universe. 🌌
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FLOWERS
+===================================================== -->
+
+<div id="garden"></div>
+
+
+<script>
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const music =
+    document.getElementById("music");
+
+
+const musicButton =
+    document.getElementById("musicButton");
+
+
+const enterButton =
+    document.getElementById("enterButton");
+
+
+const continueButton =
+    document.getElementById("continueButton");
+
+
+const futureButton =
+    document.getElementById("futureButton");
+
+
+const messageBox =
+    document.getElementById("messageBox");
+
+
+const messageTitle =
+    document.getElementById("messageTitle");
+
+
+const messageText =
+    document.getElementById("messageText");
+
+
+const space =
+    document.getElementById("space");
+
+
+/* =====================================================
+   BACKGROUND STARS
+===================================================== */
+
+for (
+    let i = 0;
+    i < 220;
+    i++
+) {
+
+    const star =
+        document.createElement("div");
+
+
+    star.className =
+        "background-star";
+
+
+    star.style.left =
+        Math.random() * 100 + "%";
+
+
+    star.style.top =
+        Math.random() * 100 + "%";
+
+
+    const size =
+        Math.random() * 2.5 + .5;
+
+
+    star.style.width =
+        size + "px";
+
+
+    star.style.height =
+        size + "px";
+
+
+    star.style.animationDelay =
+        Math.random() * 4 + "s";
+
+
+    space.appendChild(star);
+
+}
+
+
+/* =====================================================
+   SCENE CONTROL
+===================================================== */
+
+function showScene(number) {
+
+    document
+        .querySelectorAll(".scene")
+        .forEach(
+            scene => {
+
+                scene.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+
+    const target =
+        document.getElementById(
+            "scene" + number
+        );
+
+
+    if (target) {
+
+        target.classList.add(
+            "active"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   MUSIC
+===================================================== */
+
+let musicPlaying = false;
+
+
+/*
+   Try to start music.
+   If the MP3 is missing or blocked,
+   the website still continues normally.
+*/
+
+async function startMusic() {
+
+    try {
+
+        await music.play();
+
+        musicPlaying = true;
+
+        musicButton.innerText =
+            "🔇 Pause Music";
+
+    }
+
+    catch(error) {
+
+        console.log(
+            "Music could not start:",
+            error
+        );
+
+        musicButton.innerText =
+            "🎵 Music";
+
+    }
+
+}
+
+
+/* =====================================================
+   MUSIC BUTTON
+===================================================== */
+
+musicButton.addEventListener(
+    "click",
+    async function() {
+
+        if (musicPlaying) {
+
+            music.pause();
+
+            musicPlaying = false;
+
+            musicButton.innerText =
+                "🎵 Music";
+
+        }
+
+        else {
+
+            await startMusic();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   ENTER UNIVERSE
+===================================================== */
+
+enterButton.addEventListener(
+    "click",
+    async function() {
+
+        /*
+           FIRST enter the universe.
+           Music can NEVER prevent this.
+        */
+
+        showScene(2);
+
+
+        /*
+           Create the stars.
+        */
+
+        createDiscoveryStars();
+
+
+        /*
+           Try to start the music.
+        */
+
+        await startMusic();
+
+    }
+);
+
+
+/* =====================================================
+   ROMANTIC MESSAGES
+===================================================== */
+
+const memories = [
+
+    {
+
+        title:
+            "A little secret ❤️",
+
+        text:
+            "Somewhere along the way, you became one of my favorite parts of life."
+
+    },
+
+
+    {
+
+        title:
+            "A beautiful memory ✨",
+
+        text:
+            "Some moments seem ordinary when they happen... until you look back and realize how special they really were."
+
+    },
+
+
+    {
+
+        title:
+            "Something I love 🌙",
+
+        text:
+            "You have this beautiful way of making ordinary days feel completely different."
+
+    },
+
+
+    {
+
+        title:
+            "One more thing 💫",
+
+        text:
+            "If I could freeze one moment in time, I would choose one of the happiest moments we shared."
+
+    },
+
+
+    {
+
+        title:
+            "The truth ❤️",
+
+        text:
+            "No matter how enormous this universe is, somehow you still feel like my favorite place."
+
+    }
+
+];
+
+
+/* =====================================================
+   STAR STATE
+===================================================== */
+
+let collectedStars = 0;
+
+let starsCreated = false;
+
+
+/* =====================================================
+   CREATE DISCOVERY STARS
+===================================================== */
+
+function createDiscoveryStars() {
+
+    if (starsCreated) {
+
+        return;
+
+    }
+
+
+    starsCreated = true;
+
+
+    memories.forEach(
+        (memory, index) => {
+
+            const star =
+                document.createElement("div");
+
+
+            star.className =
+                "discovery-star";
+
+
+            /*
+               Spread stars around the screen.
+            */
+
+            star.style.left =
+                (
+                    8 +
+                    Math.random() * 84
+                ) + "%";
+
+
+            star.style.top =
+                (
+                    15 +
+                    Math.random() * 70
+                ) + "%";
+
+
+            star.dataset.index =
+                index;
+
+
+            star.addEventListener(
+                "click",
+                function() {
+
+                    collectStar(
+                        star,
+                        memory
+                    );
+
+                }
+            );
+
+
+            document.body.appendChild(
+                star
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   COLLECT STAR
+===================================================== */
+
+function collectStar(
+    star,
+    memory
+) {
+
+    /*
+       Don't allow the same star
+       to be collected twice.
+    */
+
+    if (
+        star.classList.contains(
+            "collected"
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    star.classList.add(
+        "collected"
+    );
+
+
+    collectedStars++;
+
+
+    showMessage(
+        memory.title,
+        memory.text
+    );
+
+}
+
+
+/* =====================================================
+   SHOW MESSAGE
+===================================================== */
+
+function showMessage(
+    title,
+    text
+) {
+
+    messageTitle.innerText =
+        title;
+
+
+    messageText.innerText =
+        text;
+
+
+    messageBox.classList.add(
+        "show"
+    );
+
+}
+
+
+/* =====================================================
+   KEEP EXPLORING BUTTON
+===================================================== */
+
+continueButton.addEventListener(
+    "click",
+    function() {
+
+        /*
+           Close the message.
+        */
+
+        messageBox.classList.remove(
+            "show"
+        );
+
+
+        /*
+           If this was the fifth star,
+           continue to the constellation.
+        */
+
+        if (
+            collectedStars >=
+            memories.length
+        ) {
+
+            setTimeout(
+                finishDiscovery,
+                700
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   FINISH STAR DISCOVERY
+===================================================== */
+
+function finishDiscovery() {
+
+    /*
+       Remove all discovery stars.
+    */
+
+    document
+        .querySelectorAll(
+            ".discovery-star"
+        )
+        .forEach(
+            star => {
+
+                star.remove();
+
+            }
+        );
+
+
+    /*
+       Show constellation.
+    */
+
+    showScene(3);
+
+
+    buildConstellation();
+
+}
+
+
+/* =====================================================
+   BUILD HEART CONSTELLATION
+===================================================== */
+
+function buildConstellation() {
+
+    const container =
+        document.getElementById(
+            "constellation"
+        );
+
+
+    container.innerHTML = "";
+
+
+    /*
+       Heart-shaped coordinates.
+    */
+
+    const points = [
+
+        [50, 15],
+
+        [35, 22],
+
+        [25, 35],
+
+        [20, 50],
+
+        [30, 65],
+
+        [40, 76],
+
+        [50, 88],
+
+        [60, 76],
+
+        [70, 65],
+
+        [80, 50],
+
+        [75, 35],
+
+        [65, 22]
+
+    ];
+
+
+    /*
+       Create constellation stars.
+    */
+
+    points.forEach(
+        (point, index) => {
+
+            const star =
+                document.createElement(
+                    "div"
+                );
+
+
+            star.className =
+                "constellation-star";
+
+
+            star.style.left =
+                point[0] + "%";
+
+
+            star.style.top =
+                point[1] + "%";
+
+
+            container.appendChild(
+                star
+            );
+
+
+            setTimeout(
+                function() {
+
+                    star.classList.add(
+                        "visible"
+                    );
+
+                },
+                index * 150
+            );
+
+        }
+    );
+
+
+    /*
+       Connect stars.
+    */
+
+    setTimeout(
+        function() {
+
+            for (
+                let i = 0;
+                i < points.length - 1;
+                i++
+            ) {
+
+                createConstellationLine(
+                    container,
+                    points[i],
+                    points[i + 1],
+                    i * 130
+                );
+
+            }
+
+
+            /*
+               Close the heart.
+            */
+
+            createConstellationLine(
+                container,
+                points[
+                    points.length - 1
+                ],
+                points[0],
+                1700
+            );
+
+        },
+        1400
+    );
+
+
+    /*
+       Put a glowing heart
+       in the center.
+    */
+
+    setTimeout(
+        function() {
+
+            const heart =
+                document.createElement(
+                    "div"
+                );
+
+
+            heart.innerText =
+                "❤️";
+
+
+            heart.style.position =
+                "absolute";
+
+
+            heart.style.left =
+                "50%";
+
+
+            heart.style.top =
+                "50%";
+
+
+            heart.style.transform =
+                "translate(-50%, -50%)";
+
+
+            heart.style.fontSize =
+                "80px";
+
+
+            heart.style.filter =
+                "drop-shadow(0 0 35px #ff4d8d)";
+
+
+            heart.style.opacity =
+                "0";
+
+
+            heart.style.transition =
+                "opacity 2s ease";
+
+
+            container.appendChild(
+                heart
+            );
+
+
+            setTimeout(
+                function() {
+
+                    heart.style.opacity =
+                        "1";
+
+                },
+                100
+            );
+
+
+        },
+        3000
+    );
+
+
+    /*
+       Automatically move forward.
+    */
+
+    setTimeout(
+        function() {
+
+            showScene(4);
+
+        },
+        6500
+    );
+
+}
+
+
+/* =====================================================
+   CONSTELLATION LINES
+===================================================== */
+
+function createConstellationLine(
+    container,
+    pointA,
+    pointB,
+    delay
+) {
+
+    const x1 =
+        pointA[0];
+
+
+    const y1 =
+        pointA[1];
+
+
+    const x2 =
+        pointB[0];
+
+
+    const y2 =
+        pointB[1];
+
+
+    const dx =
+        x2 - x1;
+
+
+    const dy =
+        y2 - y1;
+
+
+    const distance =
+        Math.sqrt(
+            dx * dx +
+            dy * dy
+        );
+
+
+    const angle =
+        Math.atan2(
+            dy,
+            dx
+        )
+        *
+        180
+        /
+        Math.PI;
+
+
+    const line =
+        document.createElement(
+            "div"
+        );
+
+
+    line.className =
+        "constellation-line";
+
+
+    line.style.left =
+        x1 + "%";
+
+
+    line.style.top =
+        y1 + "%";
+
+
+    line.style.width =
+        distance + "%";
+
+
+    line.style.transform =
+        `rotate(${angle}deg)`;
+
+
+    container.appendChild(
+        line
+    );
+
+
+    setTimeout(
+        function() {
+
+            line.classList.add(
+                "visible"
+            );
+
+        },
+        delay
+    );
+
+}
+
+
+/* =====================================================
+   FUTURE BUTTON
+===================================================== */
+
+futureButton.addEventListener(
+    "click",
+    function() {
+
+        showScene(5);
+
+        startFinale();
+
+    }
+);
+
+
+/* =====================================================
+   FINAL SCENE
+===================================================== */
+
+function startFinale() {
+
+    createFlowers();
+
+    createFloatingHearts();
+
+    createFinalSparkles();
+
+}
+
+
+/* =====================================================
+   FLOWERS
+===================================================== */
+
+function createFlowers() {
+
+    const garden =
+        document.getElementById(
+            "garden"
+        );
+
+
+    const flowers = [
+
+        "🌹",
+        "🌷",
+        "🌸",
+        "🌺",
+        "🌻",
+        "🌹",
+        "🌷",
+        "🌸",
+        "🌺",
+        "🌻",
+        "💐",
+        "🌹",
+        "🌷",
+        "🌸",
+        "🌺"
+
+    ];
+
+
+    flowers.forEach(
+        (flower, index) => {
+
+            setTimeout(
+                function() {
+
+                    const element =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    element.className =
+                        "flower";
+
+
+                    element.innerText =
+                        flower;
+
+
+                    element.style.left =
+                        Math.random() *
+                        96 +
+                        "%";
+
+
+                    element.style.fontSize =
+                        2 +
+                        Math.random() *
+                        3 +
+                        "rem";
+
+
+                    element.style.animationDelay =
+                        Math.random() *
+                        .5 +
+                        "s";
+
+
+                    garden.appendChild(
+                        element
+                    );
+
+
+                },
+                index * 180
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+let heartsStarted = false;
+
+
+function createFloatingHearts() {
+
+    /*
+       Prevent multiple intervals
+       if the finale is accidentally triggered twice.
+    */
+
+    if (heartsStarted) {
+
+        return;
+
+    }
+
+
+    heartsStarted = true;
+
+
+    setInterval(
+        function() {
+
+            const heart =
+                document.createElement(
+                    "div"
+                );
+
+
+            heart.className =
+                "floating-heart";
+
+
+            heart.innerText =
+                Math.random() > .5
+                ? "❤️"
+                : "💗";
+
+
+            heart.style.left =
+                Math.random() *
+                100 +
+                "%";
+
+
+            heart.style.fontSize =
+                15 +
+                Math.random() *
+                30 +
+                "px";
+
+
+            heart.style.animationDuration =
+                4 +
+                Math.random() *
+                4 +
+                "s";
+
+
+            document.body.appendChild(
+                heart
+            );
+
+
+            setTimeout(
+                function() {
+
+                    heart.remove();
+
+                },
+                9000
+            );
+
+
+        },
+        450
+    );
+
+}
+
+
+/* =====================================================
+   FINAL SPARKLES
+===================================================== */
+
+function createFinalSparkles() {
+
+    for (
+        let i = 0;
+        i < 35;
+        i++
+    ) {
+
+        setTimeout(
+            function() {
+
+                const sparkle =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                sparkle.className =
+                    "background-star";
+
+
+                sparkle.style.left =
+                    Math.random() *
+                    100 +
+                    "%";
+
+
+                sparkle.style.top =
+                    Math.random() *
+                    100 +
+                    "%";
+
+
+                sparkle.style.width =
+                    "3px";
+
+
+                sparkle.style.height =
+                    "3px";
+
+
+                sparkle.style.boxShadow =
+                    "0 0 15px white, 0 0 30px #ff9dcc";
+
+
+                document.body.appendChild(
+                    sparkle
+                );
+
+
+            },
+            i * 100
+        );
+
+    }
+
+}
+
+</script>
+
+</body>
+
+</html>
